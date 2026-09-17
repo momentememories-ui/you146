@@ -95,30 +95,41 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.15); overflow: hidden;
         }
 
-        /* --- PAGE 4: LIVING ROOM --- */
+        /* --- PAGE 4: LIVING ROOM (ปรับแก้ขนาดไม่ให้ล้นจอ) --- */
+        #page4 {
+            padding: 0 !important;
+            overflow: hidden !important;
+            width: 100vw;
+            height: 100vh;
+        }
+
         .room-scene {
-            width: 100%; height: 100%; position: relative;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
             overflow: hidden;
             background-image: url('photo6.jpg'); 
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
         }
         
         /* Game Hint Label */
         .game-hint {
-            position: absolute; top: 70px; left: 50%; transform: translateX(-50%);
+            position: absolute; top: 65px; left: 50%; transform: translateX(-50%);
             background: rgba(255,255,255,0.9); color: var(--accent);
-            padding: 8px 20px; border-radius: 20px; font-size: 0.9rem;
+            padding: 6px 16px; border-radius: 20px; font-size: 0.85rem;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 40;
             white-space: nowrap; animation: floatHint 2s infinite ease-in-out;
         }
         @keyframes floatHint { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, -5px); } }
 
-        /* Hidden Items */
+        /* Hidden Items (ใช้ % ตำแหน่งเพื่อให้รองรับทุกขนาดจอ) */
         .hidden-item {
-            position: absolute; width: 45px; height: 55px; cursor: pointer;
+            position: absolute; width: 42px; height: 52px; cursor: pointer;
             z-index: 10; opacity: 0.9; transition: transform 0.2s;
             background: white; padding: 3px; border-radius: 3px; box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            box-sizing: border-box;
         }
         .hidden-item:hover { transform: scale(1.1); filter: brightness(1.2); }
         .hidden-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 2px; }
@@ -126,11 +137,11 @@
         /* Inventory */
         .inventory {
             position: absolute; top: 15px; right: 15px;
-            background: rgba(255,255,255,0.95); padding: 8px; border-radius: 15px;
+            background: rgba(255,255,255,0.95); padding: 6px; border-radius: 12px;
             display: flex; gap: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); z-index: 50;
         }
         .inv-slot {
-            width: 35px; height: 35px; background: #eee; border-radius: 8px;
+            width: 32px; height: 32px; background: #eee; border-radius: 6px;
             display: flex; align-items: center; justify-content: center;
             font-size: 0.8rem; color: #ccc; overflow: hidden; transition: 0.3s;
         }
@@ -238,7 +249,7 @@
         <p style="margin-top:15px; color:#888; text-align:center;">ลองขูดดูสิ</p>
     </div>
 
-    <div id="page4" class="page" style="padding:0;">
+    <div id="page4" class="page">
         <div class="inventory">
             <div class="inv-slot" id="slot1"></div><div class="inv-slot" id="slot2"></div><div class="inv-slot" id="slot3"></div><div class="inv-slot" id="slot4"></div><div class="inv-slot" id="slot5"></div>
         </div>
@@ -246,11 +257,11 @@
         <div class="game-hint">ช่วยตามหารูปที่ซ่อนอยู่ 5 ใบหน่อยนะ! 👇</div>
 
         <div class="room-scene">
-            <div class="hidden-item" style="top:15%; right:25%; transform:rotate(5deg);" onclick="foundPhoto(1, this)"><img src="photo1.jpg"></div>
-            <div class="hidden-item" style="bottom:20%; left:10%; transform:rotate(-8deg);" onclick="foundPhoto(2, this)"><img src="photo2.jpg"></div>
-            <div class="hidden-item" style="top:45%; left:15%; z-index:1;" onclick="foundPhoto(3, this)"><img src="photo3.jpg"></div>
-            <div class="hidden-item" style="bottom:15%; right:30%; transform:rotate(12deg);" onclick="foundPhoto(4, this)"><img src="photo4.jpg"></div>
-            <div class="hidden-item" style="bottom:8%; left:40%; transform:rotate(-5deg);" onclick="foundPhoto(5, this)"><img src="photo5.jpg"></div>
+            <div class="hidden-item" style="top:20%; right:20%; transform:rotate(5deg);" onclick="foundPhoto(1, this)"><img src="photo1.jpg"></div>
+            <div class="hidden-item" style="bottom:22%; left:12%; transform:rotate(-8deg);" onclick="foundPhoto(2, this)"><img src="photo2.jpg"></div>
+            <div class="hidden-item" style="top:40%; left:18%; z-index:1;" onclick="foundPhoto(3, this)"><img src="photo3.jpg"></div>
+            <div class="hidden-item" style="bottom:18%; right:22%; transform:rotate(12deg);" onclick="foundPhoto(4, this)"><img src="photo4.jpg"></div>
+            <div class="hidden-item" style="bottom:10%; left:42%; transform:rotate(-5deg);" onclick="foundPhoto(5, this)"><img src="photo5.jpg"></div>
         </div>
     </div>
 
